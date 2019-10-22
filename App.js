@@ -65,8 +65,8 @@ function handleFinishLoading(setLoadingComplete) {
 // if you are using AMD module loader, algoliasearch will not be defined in window,
 // but in the AMD modules of the page
 
-const client = algoliasearch('17YYHSNIFA', '6ca37cfe1b276accf709c41aadf09417');
-const index = client.initIndex('your_index_name'); /// This will be updated when connected to created DB.
+// const client = algoliasearch('17YYHSNIFA', '6ca37cfe1b276accf709c41aadf09417');
+// const index = client.initIndex('your_index_name'); /// This will be updated when connected to created DB.
 
 const styles = StyleSheet.create({
   container: {
