@@ -37,4 +37,31 @@ Promise.all([
       process.exit(1);
     });
     */
+
+    // Get all plants from Firebase.
+database.ref('/plantDictionary').once('value', plantDictionary => {
+  // Build an array of all records to push to Algolia.
+  const records = [];
+  plantDictionary.forEach(plant => {
+    // Get the key and data from the snapshot.
+    const childKey = plant.key;
+    const childData = plant.val();
+    // We set the Algolia objectID as the Firebase .key
+    childData.objectID = childKey;
+    // Add object for indexing.
+    records.push(childData);
+  });
+
+  // Add or update new objects.
+  index
+    .saveObjects(records)
+    .then(() => {
+      console.log('Plants imported into Algolia.');
+    })
+    .catch(error => {
+      console.error('Error when importing plant into Algolia', error);
+      process.exit(1);
+    });
+});
+
   
