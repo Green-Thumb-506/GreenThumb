@@ -1,5 +1,8 @@
 import {StyleSheet,Text, View, ScrollView} from 'react-native';
-import React from 'react';  
+
+import React from 'react'; 
+import { Header, ListItem } from 'react-native-elements'; 
+import Icon from 'react-native-vector-icons/Ionicons'; 
   
 
 
@@ -26,7 +29,7 @@ import React from 'react';
                                            {'comName': 'Trout Lily','sciName':'Erythronium americanum', 'id': 7},
 
                                            {'comName': 'Common Blue Violet','sciName':'Viola sororia', 'id': 8},
-                                           {'comName': 'SunFlower', 'sciName':'Orchidaceae', 'id': 9},
+                                           {'comName': 'Sunflower', 'sciName':'Orchidaceae', 'id': 9},
 
                                            {'comName': 'Daffodil', 'sciName':'Rosa', 'id': 10},
 
@@ -42,17 +45,20 @@ render () {
 
   return (
 
-         <View>
-
+         <View >
+        
+           
             <ScrollView>
-
+                
                {
-
+                
                   this.state.plants.map((item, index) => (
 
                      <View key = {item.id} style = {styles.item}>
 
-                        <Text>{item.comName}</Text>
+                         <Text style={{  fontSize: 20 }}>{item.id}</Text>
+                        <Text style={{  fontSize: 20 }}>{item.comName}</Text>
+                        <Icon size={25} name={'ios-trash'}/>
 
                      </View>
 
@@ -72,7 +78,9 @@ render () {
 
 }
 
- const styles = StyleSheet.create({
+ 
+
+const styles = StyleSheet.create({
 
                  item: {
 
@@ -84,13 +92,21 @@ render () {
 
       padding: 30,
 
-      margin: 2,
+      margin: 0,
 
-      borderColor: '#2a4944',
+      fontWeight: 'bold',
 
-      borderWidth: 1,
+       fontSize: 30 ,
 
-      backgroundColor: '#d2f7f1'
+    //  borderColor: '#3BAD87',
+
+      borderWidth: 3,
+
+     marginLeft: 10,
+
+     marginRight: 10,
+
+     backgroundColor: '#FFF'
 
    }
 
