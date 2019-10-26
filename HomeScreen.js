@@ -6,10 +6,6 @@ import { Header, ListItem } from 'react-native-elements';
 import MyGardenPlants from './MyGardenPlants';
 import Icon from 'react-native-vector-icons/Ionicons';  
 
-
-
-
-
 class GardenScreen extends React.Component { 
  render() {  
     return ( 
@@ -24,13 +20,7 @@ class GardenScreen extends React.Component {
 
     );  
   }  
-} 
-
-
-
-
-    
-  
+}  
 
 class SearchScreen extends React.Component {  
   render() {  
