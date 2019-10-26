@@ -9,18 +9,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
-
 class GardenScreen extends React.Component { 
  render() {  
     return ( 
-        
-        <View>
-        <Header> 
-        <Text>My Garden</Text>
-        </Header>
-         <MyGardenPlants /> 
-         </View> 
-       
+     <View >
+
+<Text style={{width: 500, height: 50,  fontSize: 40, backgroundColor: '#3BAD87', paddingLeft: 100
+    }}>My Garden</Text>
+
+      <MyGardenPlants />
+      </View> 
+   
 
     );  
   }  
@@ -74,7 +73,9 @@ const styles = StyleSheet.create({
    flex: 1,  
     position: 'absolute',
     justifyContent: 'center',  
-    alignItems: 'center'  
+    alignItems: 'center',
+     backgroundColor: '#F5FCFF' 
+
 
     },  
 });  
