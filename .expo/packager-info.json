@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://46-esk.jwestbrook.greenthumb.exp.direct",
-  "packagerNgrokUrl": "https://packager.46-esk.jwestbrook.greenthumb.exp.direct",
-  "ngrokPid": 2672,
+  "expoServerPort": null,
+  "expoServerNgrokUrl": "https://46-esk.anonymous.greenthumb.exp.direct",
+  "packagerNgrokUrl": "https://packager.46-esk.anonymous.greenthumb.exp.direct",
+  "ngrokPid": 5232,
   "packagerPort": 19001,
-  "packagerPid": 10736
+  "packagerPid": 13168
 }
