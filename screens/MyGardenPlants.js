@@ -56,8 +56,6 @@ export default class MyGardenPlants extends React.Component {
 
 }
 
-
-
 const styles = StyleSheet.create({
 
    item: {
@@ -75,10 +73,9 @@ const styles = StyleSheet.create({
    },
    comName: {
       fontSize: 22,
-      fontFamily: 'Times New Roman'
+      //fontFamily: 'Times New Roman'
    },
    sciName: {
       fontSize: 12,
-      fontFamily: 'Helvetica'
    }
 })

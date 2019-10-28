@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         height: 50,
         fontSize: 40,
         backgroundColor: '#3BAD87',
+        // TODO get this center
         paddingLeft: 100
     }
 });
