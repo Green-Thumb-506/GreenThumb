@@ -4,10 +4,15 @@ import MyGardenPlants from './MyGardenPlants';
 
 export default class SHomeScreen extends React.Component {
 
+    static navigationOptions = {
+        title: 'My Garden',
+        headerStyle: { backgroundColor: '#3BAD87' },
+        headerTitleStyle: { fontSize: 40, height: 60 },
+    }
+
     render() {
         return (
-            <View>
-                <Text style={styles.container}>My Garden</Text>
+            <View style={styles.container}>
                 <MyGardenPlants />
             </View>
         );
@@ -16,11 +21,7 @@ export default class SHomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        width: 500,
-        height: 50,
-        fontSize: 40,
-        backgroundColor: '#3BAD87',
-        // TODO get this center
-        paddingLeft: 100
+        paddingTop: 10,
+        paddingBottom: 10
     }
 });

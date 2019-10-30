@@ -13,7 +13,6 @@ import SSettingsScreen from '../screens/SSettingsScreen.js'
 const config = Platform.select({
     web: { headerMode: 'screen' },
     default: {},
-    header: null
 });
 
 
@@ -25,7 +24,6 @@ const GardenStack = createStackNavigator(
     config
 );
 GardenStack.navigationOptions = {
-
     tabBarLabel: 'My Garden',
     tabBarIcon: ({ tintColor }) => (
         <View>
@@ -85,9 +83,9 @@ LibraryStack.navigationOptions = {
         <View>
             <Icon style={[{ color: tintColor }]} size={25} name={'ios-list-box'} />
         </View>),
-    activeColor: '#615af6',
-    inactiveColor: '#46f6d7',
-    barStyle: { backgroundColor: '#67baf6' },
+    activeColor: '#7D1324',
+    inactiveColor: '#ED92A0',
+    barStyle: { backgroundColor: '#C85B6C' },
 };
 
 
@@ -122,7 +120,6 @@ const SMainAppStack = createMaterialBottomTabNavigator(
         activeColor: '#f0edf6',
         inactiveColor: '#226557',
         barStyle: { backgroundColor: '#3BAD87' },
-        header: null
     }
 
 );

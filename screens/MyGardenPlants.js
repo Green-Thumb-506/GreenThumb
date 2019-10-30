@@ -24,8 +24,6 @@ export default class MyGardenPlants extends React.Component {
 
    }
 
-
-
    render() {
 
       return (
@@ -57,7 +55,6 @@ export default class MyGardenPlants extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
    item: {
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -73,7 +70,6 @@ const styles = StyleSheet.create({
    },
    comName: {
       fontSize: 22,
-      //fontFamily: 'Times New Roman'
    },
    sciName: {
       fontSize: 12,
