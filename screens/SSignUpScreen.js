@@ -7,6 +7,7 @@ import {
   View,
   Image,
   Alert,
+  ScrollView,
 } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { signUp, storeUser } from '../services/Api.js';
@@ -41,7 +42,7 @@ class SSignUpScreen extends React.PureComponent<Props, State> {
 
   render(): React$Element<any> {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Image
           style={styles.image}
           source={require('../images/green-tea.png')}
@@ -73,7 +74,7 @@ class SSignUpScreen extends React.PureComponent<Props, State> {
           }}
           onPress={this._proceedLogin}
         />
-      </View>
+      </ScrollView>
     );
   }
 
@@ -122,7 +123,6 @@ class SSignUpScreen extends React.PureComponent<Props, State> {
       );
       return;
     }
-    await storeUser(this.state.name, this.state.email);
     this.props.navigation.navigate('Main');
   }
 }
@@ -133,7 +133,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#bdc3c7',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: 50,
   },
   image: {
     height: 120,
