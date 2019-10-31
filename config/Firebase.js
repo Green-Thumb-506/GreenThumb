@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+
 const firebaseConfig = {
     apiKey: "AIzaSyAyA2M79qFAmhUV7VGogKeKSRNI2BdjsHs",
     authDomain: "greenthumb-de7fb.firebaseapp.com",
@@ -9,4 +11,6 @@ const firebaseConfig = {
     measurementId: "G-28D2CBR20Z"
 };
 
-export default firebaseConfig;
+const Firebase = firebase.initializeApp(firebaseConfig);
+
+export default Firebase;
