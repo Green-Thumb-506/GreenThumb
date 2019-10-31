@@ -16,7 +16,7 @@ function snapshotToArray(snapshot) {
     return returnArr;
 };
 
-const items = null;
+var items = null;
 Firebase.database().ref('/plantDictionary').once('value', (snapshot) => {
     items = snapshotToArray(snapshot);
 })
