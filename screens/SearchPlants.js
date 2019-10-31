@@ -17,7 +17,7 @@ function snapshotToArray(snapshot) {
 };
 
 var items = null;
-Firebase.database().ref('/plantDictionary').once('value', (snapshot) => {
+Firebase.database().ref('/plantDictionary').on('value', (snapshot) => {
     items = snapshotToArray(snapshot);
 })
 
