@@ -21,58 +21,6 @@ Firebase.database().ref('/plantDictionary').on('value', (snapshot) => {
     items = snapshotToArray(snapshot);
 })
 
-
-// var items = [
-//     {
-//         id: 1,
-//         name: 'Turks Cap Lily',
-//     },
-//     {
-//         id: 2,
-//         name: 'American Holly',
-//     },
-//     {
-//         id: 3,
-//         name: 'Mountain Laurel',
-//     },
-//     {
-//         id: 4,
-//         name: 'Annabelle Hydrangea',
-//     },
-//     {
-//         id: 5,
-//         name: 'Narrow-Leaved Sunflower',
-//     },
-//     {
-//         id: 6,
-//         name: 'Carolina Yellow Jessamine',
-//     },
-//     {
-//         id: 7,
-//         name: 'Blue False Indigo',
-//     },
-//     {
-//         id: 8,
-//         name: 'Jack-in-the-Pulpit',
-//     },
-//     {
-//         id: 9,
-//         name: 'Indian Grass',
-//     },
-//     {
-//         id: 10,
-//         name: 'Christmas Fern',
-//     },
-//     {
-//         id: 11,
-//         name: 'Wild or Eastern Red Columbine',
-//     },
-//     {
-//         id: 12,
-//         name: 'Butterfly Weed',
-//     },
-
-// ];
 export default class Example extends Component {
     render() {
         return (
