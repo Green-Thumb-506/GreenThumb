@@ -35,6 +35,7 @@ class SDetailedPlantScreen extends React.PureComponent<Props, State> {
 
   render(): React$Element<any> {
     var plant = this.props.navigation && this.props.navigation.getParam('plant', null) || 0;
+
     return (
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
@@ -48,10 +49,6 @@ class SDetailedPlantScreen extends React.PureComponent<Props, State> {
             <Text style={styles.plantBio}>{plant.bio}</Text>
           </View>
           <View style={styles.textView}>
-            <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
-              <Text style={styles.plantBioHeader}>{"Height: "}</Text>
-              <Text style={styles.plantBioDetails}>{plant.height}</Text>
-            </View>
             <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
               <Text style={styles.plantBioHeader}>{"Maintenance: "}</Text>
               <Text style={styles.plantBioDetails}>{plant.maintenance + "/10"}</Text>
@@ -80,7 +77,9 @@ const styles = StyleSheet.create({
   textView: {
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 25,
+    marginLeft: 25,
+    marginRight: 25,
+    marginTop: 20,
   },
   plantName: {
     fontSize: 28,

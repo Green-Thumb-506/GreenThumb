@@ -51,6 +51,7 @@ function generateRecs(light, height, maitainence, season) {
     userArr.sort(function (a, b) {
         return (a[1] - b[1]);
     });
+    console.warn(userArr)
     return userArr;
 }
 
@@ -147,127 +148,123 @@ export default class SRecommendationsScreen extends React.Component {
         headerTitleStyle: { fontSize: 40, height: 60 },
     }
 
+    _renderSelectorsIfNeeded() {
+      console.warn()
+      if (this.state.plantList && this.state.plantList.length != 0) { return null; }
+
+      return (
+        <ScrollView contentContainerStyle={styles.recommendationContainer}>
+            <Text style={styles.inputQuest}>What is the light condition for desired location?</Text>
+            <View style={styles.input}>
+                <RNPickerSelect
+                    onValueChange={(value) => {
+                        this.setState({
+                            light: value,
+                        })
+                    }
+                    }
+                    items={[
+                        { label: 'Sun', value: 1 },
+                        { label: 'Partial Sun', value: 2 },
+                        { label: 'Filtered Sunlight', value: 3 },
+                        { label: 'Shade', value: 4 },
+                        { label: 'Morning Sun', value: 5 }
+                    ]}
+                />
+            </View>
+            <Text style={styles.inputQuest}>How tall of a plant is desired?</Text>
+            <View style={styles.input}>
+                <RNPickerSelect
+                    onValueChange={(value) => {
+                        this.setState({
+                            height: value,
+                        })
+                    }
+                    }
+                    items={[
+                        { label: '< 1 foot', value: 1 },
+                        { label: '1 - 2 feet', value: 2 },
+                        { label: '2 - 5 feet', value: 3 },
+                        { label: '5 - 10 feet', value: 4 },
+                        { label: '> 10 feet', value: 5 }
+                    ]}
+                />
+            </View>
+            <Text style={styles.inputQuest}>How much maintenance do you want required?</Text>
+            <View style={styles.input}>
+                <RNPickerSelect
+                    onValueChange={(value) => {
+                        this.setState({
+                            maintenance: value,
+                        })
+                    }
+                    }
+                    items={[
+                        { label: 'Low', value: 1 },
+                        { label: 'Medium', value: 2 },
+                        { label: 'High', value: 3 },
+                    ]}
+                />
+            </View>
+            <Text style={styles.inputQuest}>What season would you like to plant?</Text>
+            <View style={styles.input}>
+                <RNPickerSelect
+                    onValueChange={(value) => {
+                        this.setState({
+                            plant: value,
+                        })
+                    }
+                    }
+                    items={[
+                        { label: 'Winter', value: 1 },
+                        { label: 'Spring', value: 2 },
+                        { label: 'Summer', value: 3 },
+                        { label: 'Fall', value: 4 },
+                    ]}
+                />
+            </View>
+            <View style={styles.buttonContainer}>
+                <Button
+                    style={styles.button}
+                    title='Submit for Recommendations'
+                    onPress={() => {
+                        let myList = generateRecs(this.state.light, this.state.height, this.state.maitenence, this.state.season)
+                        this.setState({
+                            plantList: myList,
+                        });
+                    }}
+                />
+            </View>
+        </ScrollView>
+      );
+    }
+
+    _renderPlantListIfNeeded() {
+      if (!this.state.plantList) { return null; }
+
+      return (
+        <ScrollView>
+            {
+                this.state.plantList.map((item, index) => (
+                    <View key={item[0]} style={styles.item}>
+                        <Text style={{ fontSize: 20 }}>{item[0]}</Text>
+                        <Text style={styles.comName}>{item[1].toFixed(3)}</Text>
+                    </View>
+                ))
+            }
+        </ScrollView>
+      );
+    }
+
     render() {
         return (
             <View>
-                <ScrollView contentContainerStyle={styles.recommendationContainer}>
-                    <Text style={styles.inputQuest}>What is the light condition for desired location?</Text>
-                    <View style={styles.input}>
-                        <RNPickerSelect
-                            onValueChange={(value) => {
-                                this.setState({
-                                    light: value,
-                                })
-                            }
-                            }
-                            items={[
-                                { label: 'Sun', value: 1 },
-                                { label: 'Partial Sun', value: 2 },
-                                { label: 'Filtered Sunlight', value: 3 },
-                                { label: 'Shade', value: 4 },
-                                { label: 'Morning Sun', value: 5 }
-                            ]}
-                        />
-                    </View>
-
-                    <Text style={styles.inputQuest}>How tall of a plant is desired?</Text>
-                    <View style={styles.input}>
-                        <RNPickerSelect
-                            onValueChange={(value) => {
-                                this.setState({
-                                    height: value,
-                                })
-                            }
-                            }
-                            items={[
-                                { label: '< 1 foot', value: 1 },
-                                { label: '1 - 2 feet', value: 2 },
-                                { label: '2 - 5 feet', value: 3 },
-                                { label: '5 - 10 feet', value: 4 },
-                                { label: '> 10 feet', value: 5 }
-                            ]}
-                        />
-                    </View>
-
-                    <Text style={styles.inputQuest}>How much maintenance do you want required?</Text>
-                    <View style={styles.input}>
-                        <RNPickerSelect
-                            onValueChange={(value) => {
-                                this.setState({
-                                    maintenance: value,
-                                })
-                            }
-                            }
-                            items={[
-                                { label: 'Low', value: 1 },
-                                { label: 'Medium', value: 2 },
-                                { label: 'High', value: 3 },
-                            ]}
-                        />
-                    </View>
-
-
-                    <Text style={styles.inputQuest}>What season would you like to plant?</Text>
-                    <View style={styles.input}>
-                        <RNPickerSelect
-                            onValueChange={(value) => {
-                                this.setState({
-                                    plant: value,
-                                })
-                            }
-                            }
-                            items={[
-                                { label: 'Winter', value: 1 },
-                                { label: 'Spring', value: 2 },
-                                { label: 'Summer', value: 3 },
-                                { label: 'Fall', value: 4 },
-                            ]}
-                        />
-                    </View>
-
-                    <View style={styles.buttonContainer}>
-                        <Button
-                            style={styles.button}
-                            title='Submit for Recommendations'
-                            onPress={() => {
-                                let myList = generateRecs(this.state.light, this.state.height, this.state.maitenence, this.state.season)
-                                //console.log(myList);
-                                this.setState({
-                                    plantList: myList,
-                                });
-                            }}
-                        />
-                    </View>
-
-                </ScrollView>
-
-
-
-                <ScrollView>
-                    {
-
-                        this.state.plantList.map((item, index) => (
-
-                            <View key={item[0]} style={styles.item}>
-
-                                <Text style={{ fontSize: 20 }}>{item[0]}</Text>
-                                <Text style={styles.comName}>{item[1].toFixed(3)}</Text>
-
-                            </View>
-
-                        ))
-                    }
-                </ScrollView>
-
+                {this._renderSelectorsIfNeeded()}
+                {this._renderPlantListIfNeeded()}
             </View>
-
         )
-
     }
-
 }
-
-// Style sheet for this screen.
 
 const styles = StyleSheet.create({
     inputQuest: {
