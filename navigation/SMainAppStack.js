@@ -39,6 +39,7 @@ GardenStack.navigationOptions = {
 const SearchStack = createStackNavigator(
     {
         Search: SSearchScreen,
+        DetailedPlant: SDetailedPlantScreen,
     },
     config
 );

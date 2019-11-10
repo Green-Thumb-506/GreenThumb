@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, ImageBackground } from 'react-native';
 import SearchPlants from './SearchPlants'
 
 export default class SSearchScreen extends React.Component {
-    
+
     static navigationOptions = {
         title: 'GreenThumb Database',
         headerStyle: { backgroundColor: '#f69b31' },

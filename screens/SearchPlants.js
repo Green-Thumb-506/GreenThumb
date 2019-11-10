@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchableDropdown from 'react-native-searchable-dropdown';
 import { StyleSheet } from 'react-native';
 import Firebase from '../config/Firebase';
+import { withNavigation } from 'react-navigation'
 
 function snapshotToArray(snapshot) {
     var returnArr = [];
@@ -21,14 +22,12 @@ Firebase.database().ref('/plantDictionary').on('value', (snapshot) => {
     items = snapshotToArray(snapshot);
 })
 
-export default class Example extends Component {
+class SearchPlants extends Component {
     render() {
         return (
             <SearchableDropdown
                 onTextChange={text => console.log(text)}
-                onItemSelect={item => alert(JSON.stringify(item))}
-
-
+                onItemSelect={item => this._onPressPlant(item)}
                 containerStyle={{ padding: 50, }}
                 textInputStyle={styles.inputText}
                 itemStyle={styles.item}
@@ -42,6 +41,13 @@ export default class Example extends Component {
 
         );
     }
+
+    _onPressPlant = (item: any) => {
+      this.props.navigation.navigate('DetailedPlant', {
+        plant: item,
+      });
+    }
+
 }
 
 const styles = StyleSheet.create({
@@ -63,3 +69,5 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     }
 })
+
+module.exports = withNavigation(SearchPlants);

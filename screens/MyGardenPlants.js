@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { fetchPlantDB } from '../services/Api.js';
-import {withNavigation} from 'react-navigation'
+import { withNavigation } from 'react-navigation'
 
 type State = {
   plants: any,

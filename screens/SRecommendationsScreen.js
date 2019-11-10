@@ -150,9 +150,7 @@ export default class SRecommendationsScreen extends React.Component {
     render() {
         return (
             <View>
-                <ScrollView>
-
-
+                <ScrollView contentContainerStyle={styles.recommendationContainer}>
                     <Text style={styles.inputQuest}>What is the light condition for desired location?</Text>
                     <View style={styles.input}>
                         <RNPickerSelect
@@ -319,5 +317,9 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         backgroundColor: '#FFF'
+    },
+    recommendationContainer: {
+      margin: 20,
+      height: '100%',
     },
 })
