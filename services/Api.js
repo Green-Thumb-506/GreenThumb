@@ -52,14 +52,13 @@ export const signUp = async (userName: string, password: string): Promise<Object
   }
 }
 
-export const getHouses = async (): Promise<Object> => {
+export const fetchPlantDB = async (): Promise<Object> => {
   try {
-    const res = await fetch('https://spike-exercise-f7fec.firebaseio.com/.json');
+    const res = await fetch('https://greenthumb-de7fb.firebaseio.com/.json');
     const json = await res.json();
-    console.log("JSON: " + JSON.stringify(json))
     return json;
   } catch (err) {
-    console.error("#25 Sign Up error: ", err);
+    console.error("#25 Error fetching plant DB: ", err);
     return null;
   }
 }

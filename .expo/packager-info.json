@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://k6-ue3.anonymous.greenthumb-2.exp.direct",
-  "packagerNgrokUrl": "https://packager.k6-ue3.anonymous.greenthumb-2.exp.direct",
-  "ngrokPid": 8020,
-  "packagerPort": 19001,
-  "packagerPid": 492
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "packagerPort": null,
+  "packagerPid": null
 }

@@ -9,10 +9,12 @@ import SSearchScreen from '../screens/SSearchScreen.js'
 import SRecommendationsScreen from '../screens/SRecommendationsScreen.js'
 import SLibraryScreen from '../screens/SLibraryScreen.js'
 import SSettingsScreen from '../screens/SSettingsScreen.js'
+import SDetailedPlantScreen from '../screens/SDetailedPlantScreen.js'
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
     default: {},
+    headerBackTitle: 'Back'
 });
 
 
@@ -20,6 +22,7 @@ const config = Platform.select({
 const GardenStack = createStackNavigator(
     {
         Garden: SHomeScreen,
+        DetailedPlant: SDetailedPlantScreen,
     },
     config
 );

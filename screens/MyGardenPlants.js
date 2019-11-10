@@ -1,77 +1,139 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { fetchPlantDB } from '../services/Api.js';
+import {withNavigation} from 'react-navigation'
 
+type State = {
+  plants: any,
+  refreshing: boolean,
+}
 
-export default class MyGardenPlants extends React.Component {
+class MyGardenPlants extends React.Component {
+  state: State = {
+    plants: null,
+    refreshing: false,
+  }
 
-   state = {
-      plants: [
-         { 'comName': 'Orchid', 'sciName': 'Orchidaceae', 'id': 1 },
-         { 'comName': 'Rose', 'sciName': 'Rosa', 'id': 2 },
-         { 'comName': 'Lily', 'sciName': 'Lilium', 'id': 3 },
-         { 'comName': 'Tulip', 'sciName': 'Tulipa', 'id': 4 },
-         { 'comName': 'Carnation', 'sciName': 'Dianthus caryophyllus', 'id': 5 },
-         { 'comName': 'Lotus', 'sciName': 'Nelumbo nucifera', 'id': 6 },
-         { 'comName': 'Trout Lily', 'sciName': 'Erythronium americanum', 'id': 7 },
-         { 'comName': 'Common Blue Violet', 'sciName': 'Viola sororia', 'id': 8 },
-         { 'comName': 'Sunflower', 'sciName': 'Orchidaceae', 'id': 9 },
-         { 'comName': 'Daffodil', 'sciName': 'Rosa', 'id': 10 },
-         { 'comName': 'Irises', 'sciName': 'Lilium', 'id': 11 }
-      ]
+  componentDidMount() {
+    this._fetchPlants();
+  }
 
-   }
-
-   render() {
-
+  render() {
       return (
-
-         <View >
-            <ScrollView>
-               {
-                  this.state.plants.map((item, index) => (
-
-                     <View key={item.id} style={styles.item}>
-
-                        <Text style={{ fontSize: 20 }}>{item.id}</Text>
-                        <Text style={styles.comName}>{item.comName} <Text style={styles.sciName}>({item.sciName})</Text></Text>
-                        
-                        <TouchableOpacity>
-                           <Icon size={25} name={'ios-trash'} />
-                        </TouchableOpacity>
-
-                     </View>
-
-                  ))
-               }
-            </ScrollView>
+         <View style={{flex: 1}}>
+            {this.state.plants && this._renderFlatList()}
          </View>
       );
+  }
 
+  _renderFlatList() {
+    if (!this.state.plants || !this.state.plants.plantDictionary) { return null; }
+    const plantDictionary = this.state.plants.plantDictionary;
+    var data = [];
+
+    for (var i in plantDictionary)
+        data.push(plantDictionary[i]);
+    return (
+       <FlatList
+          data={data}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+          ItemSeparatorComponent={this._renderCellSeperator}
+          onRefresh={this._fetchPlants}
+          refreshing={this.state.refreshing}
+       />
+    );
+   }
+
+   _renderCellSeperator() {
+      return (
+        <React.Fragment>
+          <View style={styles.cellSeperator} />
+        </React.Fragment>
+      );
+    }
+
+
+   _renderItem = (item: any, index: number) => {
+     const name = item.item.name || "";
+     const imageUri = item.item.picture || "";
+
+     return (
+       <TouchableOpacity
+         onPress={() => this._onPressPlant(item.item)}
+         key={item.id}
+         style={styles.item}
+       >
+         <Image
+           style={styles.image}
+           source={{uri: imageUri}}
+         />
+         <View style={styles.textView}>
+           <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{name}</Text>
+         </View>
+         <TouchableOpacity>
+            <Icon size={25} name={'ios-trash'} />
+         </TouchableOpacity>
+      </TouchableOpacity>
+     );
+   }
+
+   _onPressPlant = (item: any) => {
+     this.props.navigation.navigate('DetailedPlant', {
+       plant: item,
+     });
+   }
+
+   _keyExtractor = (item, index) => {
+     return index.toString();
+   }
+
+   _fetchPlants = async (): void => {
+      var res = await fetchPlantDB();
+      this.setState({
+        plants: res || {},
+      })
    }
 
 }
 
 const styles = StyleSheet.create({
-   item: {
+  cellSeperator: {
+    height: 5,
+    width: '100%',
+  },
+  image: {
+    height: 80,
+    width: 80,
+    margin: 10,
+    borderRadius: 40,
+  },
+  item: {
+      flex: 1,
+      height: 100,
+      backgroundColor: '#bdc3c7',
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: 30,
-      margin: 0,
+      padding: 10,
       fontWeight: 'bold',
-      fontSize: 30,
       borderWidth: 3,
       marginLeft: 10,
       marginRight: 10,
-      backgroundColor: '#FFF'
    },
-   comName: {
-      fontSize: 22,
+   textView: {
+      width: '60%',
    },
-   sciName: {
-      fontSize: 12,
-   }
 })
+
+module.exports = withNavigation(MyGardenPlants);

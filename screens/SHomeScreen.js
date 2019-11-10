@@ -7,7 +7,7 @@ export default class SHomeScreen extends React.Component {
     static navigationOptions = {
         title: 'My Garden',
         headerStyle: { backgroundColor: '#3BAD87' },
-        headerTitleStyle: { fontSize: 40, height: 60 },
+        headerTitleStyle: { fontSize: 30, height: 60, paddingTop: 10, },
     }
 
     render() {
@@ -21,7 +21,7 @@ export default class SHomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 10,
-        paddingBottom: 10
+      flex: 1,
+      paddingTop: 10,
     }
 });

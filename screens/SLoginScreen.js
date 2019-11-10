@@ -117,12 +117,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#bdc3c7',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   image: {
     height: 120,
     width: 120,
-    marginBottom: 60,
+    marginBottom: 20,
+    marginTop: 20,
   },
   inputStyle: {
     paddingBottom: 100,
