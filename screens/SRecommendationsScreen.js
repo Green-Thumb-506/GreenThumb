@@ -35,24 +35,33 @@ function comparePlants(a, b) {
 function generateRecs(light, height, maitainence, season) {
     // this total will need editing!
     let userTotal = light * .6 + height * .6 + maitainence * .6 + season * .6;
-    //console.log("Here is Jon's Total:", userTotal);
+
     let recommendations = recommendPlantDict(plants);
     let userArr = [];
     //let sortedArray = [];
     Object.keys(recommendations).forEach(function (plantName) {
         let name = plantName;
         let total = Math.abs(userTotal - recommendations[plantName]);
-        //console.log([name, total])
         userArr.push([name, total]);
-        //sortedArray.push([name, total]);
-
 
     });
     userArr.sort(function (a, b) {
         return (a[1] - b[1]);
     });
-    console.warn(userArr)
-    return userArr;
+
+    let sortedPlant = {};
+    var index = 0;
+    for(var i = 0; i  < userArr.length; i++) {
+        for(var j = 0; j < plants.length; j++) {
+            if(userArr[i][0] === plants[j].name) {
+                sortedPlant[index] = plants[j];
+                index++;
+                break;
+            }
+        }
+    }
+
+    return sortedPlant;
 }
 
 // method for recommending the plant
@@ -149,7 +158,7 @@ export default class SRecommendationsScreen extends React.Component {
     }
 
     _renderSelectorsIfNeeded() {
-      console.warn()
+      //console.warn()
       if (this.state.plantList && this.state.plantList.length != 0) { return null; }
 
       return (
