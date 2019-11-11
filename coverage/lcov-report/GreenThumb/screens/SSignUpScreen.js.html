@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36% </span>
+        <span class="strong">12% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/25</span>
+        <span class='fraction'>3/25</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/12</span>
+        <span class='fraction'>0/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36% </span>
+        <span class="strong">12% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/25</span>
+        <span class='fraction'>3/25</span>
       </div>
     </div>
     <p class="quiet">
@@ -238,7 +238,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -257,7 +257,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -295,26 +295,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -406,7 +406,7 @@ type State = {
 };
 &nbsp;
 class SSignUpScreen extends React.PureComponent&lt;Props, State&gt; {
-  state: State = {
+  state: State = <span class="cstat-no" title="statement not covered" >{</span>
     email: '',
     password: '',
     name: '',
@@ -418,14 +418,14 @@ class SSignUpScreen extends React.PureComponent&lt;Props, State&gt; {
     headerTitleStyle: { color: '#2c3e50', },
   }
 &nbsp;
-  componentDidMount() {
+<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  co</span>mponentWillUnmount() {
   }
 &nbsp;
-  render(): React$Element&lt;any&gt; {
-    return (
+<span class="fstat-no" title="function not covered" >  re</span>nder(): React$Element&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;ScrollView contentContainerStyle={styles.container}&gt;
         &lt;Image
           style={styles.image}
@@ -463,26 +463,26 @@ class SSignUpScreen extends React.PureComponent&lt;Props, State&gt; {
   }
 &nbsp;
 &nbsp;
-  _onChangeName = <span class="fstat-no" title="function not covered" >(t</span>ext: string) =&gt; {
+  _onChangeName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(t</span>ext: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
       name: text,
     });
   }
 &nbsp;
 &nbsp;
-  _onChangeEmail = <span class="fstat-no" title="function not covered" >(t</span>ext: string) =&gt; {
+  _onChangeEmail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(t</span>ext: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
       email: text,
     });
   }
 &nbsp;
-  _onChangePassword = <span class="fstat-no" title="function not covered" >(t</span>ext: string) =&gt; {
+  _onChangePassword = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(t</span>ext: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
       password: text,
     });
   }
 &nbsp;
-  _proceedLogin = <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {
+  _proceedLogin = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!this.state.email || !this.state.password || !this.state.name) {</span>
 <span class="cstat-no" title="statement not covered" >      Alert.alert(</span>
         'Error!',
@@ -556,7 +556,7 @@ module.exports = SSignUpScreen;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 11 2019 15:24:22 GMT-0600 (Central Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 11 2019 15:38:42 GMT-0600 (Central Standard Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

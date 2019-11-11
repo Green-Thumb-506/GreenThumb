@@ -10,6 +10,7 @@ import SRecommendationsScreen from '../screens/SRecommendationsScreen.js'
 import SLibraryScreen from '../screens/SLibraryScreen.js'
 import SSettingsScreen from '../screens/SSettingsScreen.js'
 import SDetailedPlantScreen from '../screens/SDetailedPlantScreen.js'
+import RecommendedPlantsList from '../screens/RecommendedPlantsList.js'
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
@@ -59,6 +60,8 @@ SearchStack.navigationOptions = {
 const RecommendationsStack = createStackNavigator(
     {
         Recommendations: SRecommendationsScreen,
+        DetailedPlant: SDetailedPlantScreen,
+        RecommendedPlantsList: RecommendedPlantsList, 
     },
     config
 );

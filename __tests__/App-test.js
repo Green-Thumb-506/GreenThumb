@@ -3,10 +3,7 @@ import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
 import renderer from 'react-test-renderer';
 
 import App from '../App';
-import SHomeScreen from '../screens/SHomeScreen.js';
-import SSettingsScreen from '../screens/SSettingsScreen.js';
 import SLibraryScreen from '../screens/SLibraryScreen.js';
-import SSignUpScreen from '../screens/SSignUpScreen.js';
 
 import { signUp, loginUser, fetchPlantDB } from '../services/Api.js';
 
@@ -39,14 +36,14 @@ describe('App', () => {
   });
 });
 
-describe('SHomeScreen', () => {
-    describe('Rendering', () => {
-        it('should match to snapshot', () => {
-            const navigation = { navigate: jest.fn() };
-            expect(true)
-        });
-    });
-});
+// describe('SHomeScreen', () => {
+//     describe('Rendering', () => {
+//         it('should match to snapshot', () => {
+//             const navigation = { navigate: jest.fn() };
+//             expect(true)
+//         });
+//     });
+// });
 
 describe('SLibraryScreen', () => {
   jest.useFakeTimers();
@@ -61,20 +58,8 @@ describe('SLibraryScreen', () => {
   });
 });
 
-describe('SSignUpScreen', () => {
-  jest.useFakeTimers();
 
-  beforeEach(() => {
-    NavigationTestUtils.resetInternalState();
-  });
-
-  it(`renders the sign-up screen`, () => {
-    const tree = renderer.create(<SSignUpScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
-
-describe('API', async () => {
+describe('API', () => {
   jest.useFakeTimers();
 
   beforeEach(() => {
@@ -90,22 +75,22 @@ describe('API', async () => {
     const json = loginUser("username", "password")
     expect(json);
   });
+});
 
-  it(`Testing Fetch DB Non Async`, () => {
-    const json = fetchPlantDB()
-    expect(json);
+it(`Testing Fetch DB Non Async`, () => {
+  const json = fetchPlantDB()
+  expect(json);
+});
+
+it(`Testing LogIn Async`, () => {
+  return loginUser().then(data => {
+    expect(data).toBe(data);
   });
+});
 
-  it(`Testing LogIn Async`, () => {
-    return loginUser().then(data => {
-      expect(data).toBe(data);
-    });
-  });
-
-  it(`Testing FetchDB Async`, () => {
-    return fetchPlantDB().then(data => {
-      expect(data).toBe(data);
-    });
+it(`Testing FetchDB Async`, () => {
+  return fetchPlantDB().then(data => {
+    expect(data).toBe(data);
   });
 });
 

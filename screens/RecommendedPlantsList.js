@@ -11,47 +11,40 @@ import {
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { fetchPlantDB } from '../services/Api.js';
-import { withNavigation } from 'react-navigation'
 
 type State = {
   plants: any,
   refreshing: boolean,
 }
 
-class MyGardenPlants extends React.Component {
+class RecommendedPlantsList extends React.Component {
   state: State = {
     plants: null,
     refreshing: false,
   }
 
-  componentDidMount() {
-    this._fetchPlants();
-  }
 
   render() {
+      var plantsList = this.props.navigation && this.props.navigation.getParam('plantsList', null) || 0;
       return (
          <View style={{flex: 1}}>
-            {this.state.plants && this._renderFlatList()}
+            {plantsList && this._renderFlatList()}
          </View>
       );
   }
 
   _renderFlatList() {
-    if (!this.state.plants || !this.state.plants.plantDictionary) { return null; }
-    const plantDictionary = this.state.plants.plantDictionary;
     var data = [];
+    var plantsList = this.props.navigation && this.props.navigation.getParam('plantsList', null) || 0;
 
-    for (var i in plantDictionary)
-        data.push(plantDictionary[i]);
-
-    console.warn(data)
+    for (var i in plantsList)
+        data.push(plantsList[i]);
     return (
        <FlatList
           data={data}
           renderItem={this._renderItem}
           keyExtractor={this._keyExtractor}
           ItemSeparatorComponent={this._renderCellSeperator}
-          onRefresh={this._fetchPlants}
           refreshing={this.state.refreshing}
        />
     );
@@ -100,12 +93,12 @@ class MyGardenPlants extends React.Component {
      return index.toString();
    }
 
-   _fetchPlants = async (): void => {
-      var res = await fetchPlantDB();
-      this.setState({
-        plants: res || {},
-      })
-   }
+   // _fetchPlants = async (): void => {
+   //    var res = await fetchPlantDB();
+   //    this.setState({
+   //      plants: res || {},
+   //    })
+   // }
 
 }
 
@@ -138,4 +131,4 @@ const styles = StyleSheet.create({
    },
 })
 
-module.exports = withNavigation(MyGardenPlants);
+module.exports = RecommendedPlantsList;

@@ -229,8 +229,8 @@ export default class SRecommendationsScreen extends React.Component {
                     title='Submit for Recommendations'
                     onPress={() => {
                         let myList = generateRecs(this.state.light, this.state.height, this.state.maitenence, this.state.season)
-                        this.setState({
-                            plantList: myList,
+                        this.props.navigation.navigate('RecommendedPlantsList', {
+                          plantsList: myList,
                         });
                     }}
                 />
@@ -260,7 +260,6 @@ export default class SRecommendationsScreen extends React.Component {
         return (
             <View>
                 {this._renderSelectorsIfNeeded()}
-                {this._renderPlantListIfNeeded()}
             </View>
         )
     }

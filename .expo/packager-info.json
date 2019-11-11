@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": null,
-  "expoServerNgrokUrl": "https://jf-77g.anonymous.greenthumb.exp.direct",
-  "packagerNgrokUrl": "https://packager.jf-77g.anonymous.greenthumb.exp.direct",
-  "ngrokPid": 6214,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "packagerPort": null,
   "packagerPid": null
 }

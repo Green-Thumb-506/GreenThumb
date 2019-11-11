@@ -39,7 +39,6 @@ export const signUp = async (userName: string, password: string): Promise<Object
     const json = await res.json();
     return json;
   } catch (err) {
-    console.error("#25 Sign Up error: ", JSON.stringify(err));
     return null;
   }
 }
@@ -50,7 +49,6 @@ export const fetchPlantDB = async (): Promise<Object> => {
     const json = await res.json();
     return json;
   } catch (err) {
-    console.error("#25 Error fetching plant DB: ", err);
     return null;
   }
 }
