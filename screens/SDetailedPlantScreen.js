@@ -47,21 +47,9 @@ class SDetailedPlantScreen extends React.PureComponent<Props, State> {
             <Text style={styles.plantName}>{plant.name}</Text>
             <View style={{height: 20}}/>
             <Text style={styles.plantBio}>{plant.bio}</Text>
+            <Text style={styles.plantBio}>{plant.specs}</Text>
           </View>
-          <View style={styles.textView}>
-            <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
-              <Text style={styles.plantBioHeader}>{"Maintenance: "}</Text>
-              <Text style={styles.plantBioDetails}>{plant.maintenance + "/10"}</Text>
-            </View>
-            <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
-              <Text style={styles.plantBioHeader}>{"Water: "}</Text>
-              <Text style={styles.plantBioDetails}>{plant.water + "/10"}</Text>
-            </View>
-            <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
-              <Text style={styles.plantBioHeader}>{"Season: "}</Text>
-              <Text style={styles.plantBioDetails}>{plant.season}</Text>
-            </View>
-          </View>
+          
         </ScrollView>
       </View>
     );
