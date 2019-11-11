@@ -1,12 +1,5 @@
 import Constants from 'expo-constants';
 
-var installationId = Constants.installationId;
-var installationIdHouse = Constants.installationId + "house";
-
-var email = "";
-var name = "";
-var realtimeDBname = "";
-
 export const loginUser = async (userName: string, password: string): Promise<Object> => {
   var data = {
     email: userName,
@@ -25,7 +18,6 @@ export const loginUser = async (userName: string, password: string): Promise<Obj
     email = userName;
     return json;
   } catch (err) {
-    // console.error("#25 Login error: ", err);
     return null;
   }
 }
@@ -62,31 +54,3 @@ export const fetchPlantDB = async (): Promise<Object> => {
     return null;
   }
 }
-
-
-// export const storeUser = async (userName: string, userEmail: string) => {
-//   email = userEmail;
-//   name = userName;
-//
-//   var data = {
-//     email: userEmail,
-//     name: userName,
-//   };
-//   const jsonData = JSON.stringify(data);
-//   console.log(jsonData)
-//   let request = {
-//       method: 'PUT',
-//       body: jsonData,
-//       'Content-Type': 'application/json'
-//   }
-//   try {
-//     const res = await fetch('https://spike-exercise-f7fec.firebaseio.com/' + [installationId] + '.json', request);
-//     const json = await res.json();
-//     console.log("JSON: " + JSON.stringify(json))
-//     realtimeDBname = json && json.name;
-//     return json;
-//   } catch (err) {
-//     console.error("#28 Sign Up error: ", err);
-//     return null;
-//   }
-// }
