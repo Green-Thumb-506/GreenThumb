@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import MyGardenPlants from './MyGardenPlants';
 
 export default class SLibraryScreen extends React.Component {
     
@@ -12,7 +13,7 @@ export default class SLibraryScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-
+             <MyGardenPlants />
             </View>
         );
     }
