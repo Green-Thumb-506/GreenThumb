@@ -22,6 +22,7 @@ function recommendationsArray(snapshot) {
 var plants = null;
 Firebase.database().ref('/plantDictionary').on('value', (snapshot) => {
     plants = recommendationsArray(snapshot);
+    console.log(plants)
 });
 
 function comparePlants(a, b) {
@@ -34,7 +35,7 @@ function comparePlants(a, b) {
 
 function generateRecs(light, height, maitainence, season) {
     // this total will need editing!
-    let userTotal = light * .6 + height * .6 + maitainence * .6 + season * .6;
+    let userTotal = light * .7 + height * .5 + maitainence * .1 + season * .4;
 
     let recommendations = recommendPlantDict(plants);
     let userArr = [];
@@ -123,19 +124,20 @@ function recommendPlantDict(plantDict) {
         try {
             heightTotal = parseFloat(plant.height, 10);
         } catch {
-        }
 
+        }
         //start of the maitainence
         let maitTotal = 0;
         try {
-            maitTotal = parseInt(plant.maitenance, 10) + 1;
-            if (maitTotal.isNaN()) mainTotal = 1;
+            //TODO: Test Later -  Get ri
+            maitTotal = parseInt(plant.maintenance, 10) + 1;
+            // if (maitTotal.isNaN()) mainTotal = 1;
         } catch {
             maitTotal = 1;
         }
         // end of maitenance
 
-        total += lightTotal * .6 + seasonTotal * .3 + heightTotal * .2 + maitTotal * .3;
+        total += lightTotal * .7 + seasonTotal * .4 + heightTotal * .5 + maitTotal * .1;
         // total += lightTotal*.6 + maitTotal*.4 + seasonTotal*.3 + heightTotal*.2;
         recDict[plant.name] = total;
         //console.log(`${plant.name}:`, recDict[plant.name])
@@ -161,9 +163,6 @@ export default class SRecommendationsScreen extends React.Component {
     }
 
     _renderSelectorsIfNeeded() {
-      //console.warn()
-      if (this.state.plantList && this.state.plantList.length != 0) { return null; }
-
       return (
         <ScrollView contentContainerStyle={styles.recommendationContainer}>
             <Text style={styles.inputQuest}>What is the light condition for desired location?</Text>
@@ -270,7 +269,7 @@ export default class SRecommendationsScreen extends React.Component {
 
     render() {
         return (
-            <View>
+            <View style={{flex: 1, }}>
                 {this._renderSelectorsIfNeeded()}
             </View>
         )
@@ -328,6 +327,7 @@ const styles = StyleSheet.create({
     },
     recommendationContainer: {
       margin: 20,
-      height: '100%',
+      flex: 1
+
     },
 })
