@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import MyGardenPlants from './MyGardenPlants';
 
 export default class SLibraryScreen extends React.Component {
-    
+
     static navigationOptions = {
         title: 'Library',
         headerStyle: { backgroundColor: '#C85B6C' },
@@ -13,19 +13,16 @@ export default class SLibraryScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-             <MyGardenPlants />
+               <MyGardenPlants />
             </View>
         );
     }
-    
+
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        position: 'absolute',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
+      flex: 1,
+      paddingTop: 10,
     },
 });

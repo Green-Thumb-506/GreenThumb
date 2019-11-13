@@ -60,8 +60,11 @@ function generateRecs(light, height, maitainence, season) {
             }
         }
     }
-
-    return sortedPlant;
+    var filteredPlants = {};
+    for (var i = 0; i < 3; i++) {
+      filteredPlants[i] = sortedPlant[i];
+    }
+    return filteredPlants;
 }
 
 // method for recommending the plant
