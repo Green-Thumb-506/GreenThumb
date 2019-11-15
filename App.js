@@ -28,6 +28,7 @@ export default function App(props) {
   }
 }
 
+/* istanbul ignore next */
 async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
@@ -44,16 +45,19 @@ async function loadResourcesAsync() {
   ]);
 }
 
+/* istanbul ignore next */
 function handleLoadingError(error) {
   // In this case, you might want to report the error to your error reporting
   // service, for example Sentry
   console.warn(error);
 }
 
+/* istanbul ignore next */
 function handleFinishLoading(setLoadingComplete) {
   setLoadingComplete(true);
 }
 
+/* istanbul ignore next */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

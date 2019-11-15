@@ -1,9 +1,9 @@
 import React from 'react';
 import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
 import renderer from 'react-test-renderer';
+import SSignUpScreen from '../screens/SSignUpScreen.js';
 
 import App from '../App';
-import SLibraryScreen from '../screens/SLibraryScreen.js';
 
 import { signUp, loginUser, fetchPlantDB } from '../services/Api.js';
 
@@ -45,17 +45,9 @@ describe('App', () => {
 //     });
 // });
 
-describe('SLibraryScreen', () => {
-  jest.useFakeTimers();
-
-  beforeEach(() => {
-    NavigationTestUtils.resetInternalState();
-  });
-
-  it(`renders the settings screen`, () => {
-    const tree = renderer.create(<SLibraryScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+it(`Testing Sign Up Screen`, () => {
+  const tree = renderer.create(<SSignUpScreen />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 
