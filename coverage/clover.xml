@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1573803071531" clover="3.2.0">
-  <project timestamp="1573803071531" name="All files">
-    <metrics statements="29" coveredstatements="26" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="5" elements="41" coveredelements="37" complexity="0" loc="29" ncloc="29" packages="5" files="5" classes="5"/>
+<coverage generated="1574110337663" clover="3.2.0">
+  <project timestamp="1574110337663" name="All files">
+    <metrics statements="36" coveredstatements="33" conditionals="6" coveredconditionals="6" methods="11" coveredmethods="8" elements="53" coveredelements="47" complexity="0" loc="36" ncloc="36" packages="5" files="8" classes="8"/>
     <package name="GreenThumb">
       <metrics statements="5" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="1"/>
       <file name="App.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/App.js">
@@ -28,10 +28,26 @@
       </file>
     </package>
     <package name="GreenThumb.screens">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
+      <file name="SLoginScreen.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/screens/SLoginScreen.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="163" count="1" type="stmt"/>
+      </file>
+      <file name="SSettingsScreen.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/screens/SSettingsScreen.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
       <file name="SSignUpScreen.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/screens/SSignUpScreen.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="175" count="1" type="stmt"/>
+      </file>
+      <file name="SWelcomeScreen.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/screens/SWelcomeScreen.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
       </file>
     </package>
     <package name="GreenThumb.services">

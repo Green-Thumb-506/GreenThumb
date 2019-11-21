@@ -588,6 +588,371 @@ exports[`SSignUpScreen renders the sign-up screen 1`] = `
 </RCTScrollView>
 `;
 
+exports[`Testing Login Screen 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#bdc3c7",
+      "flex": 1,
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 120,
+        "marginBottom": 20,
+        "marginTop": 20,
+        "width": 120,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingBottom": 10,
+        "paddingHorizontal": 10,
+        "width": "70%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#86939e",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Email
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomWidth": 1,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        editable={true}
+        onChangeText={[Function]}
+        placeholder="email@address.com"
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "paddingBottom": 20,
+        "paddingHorizontal": 10,
+        "width": "70%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#86939e",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Password
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomWidth": 1,
+          "borderColor": "#86939e",
+          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        editable={true}
+        onChangeText={[Function]}
+        placeholder="Password"
+        rejectResponderTermination={true}
+        secureTextEntry={true}
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "black",
+            "flex": 1,
+            "fontSize": 18,
+            "minHeight": 40,
+          }
+        }
+        testID="RNE__Input__text-input"
+        underlineColorAndroid="transparent"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "color": "#2c3e50",
+          "opacity": 1,
+          "paddingBottom": 30,
+          "width": "70%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#2c3e50",
+            "borderColor": "#2089dc",
+            "borderRadius": 3,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Login to Account
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing Login Screen 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#bdc3c7",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#2c3e50",
+        "fontSize": 50,
+        "fontWeight": "600",
+        "marginBottom": 60,
+      }
+    }
+  >
+    GreenThumb
+  </Text>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 120,
+        "marginBottom": 60,
+        "width": 120,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "color": "#2c3e50",
+          "opacity": 1,
+          "paddingBottom": 10,
+          "width": "60%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#2c3e50",
+            "borderColor": "#2089dc",
+            "borderRadius": 3,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Create an Account
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "color": "#2c3e50",
+          "opacity": 1,
+          "paddingBottom": 10,
+          "width": "60%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#2c3e50",
+            "borderColor": "#2089dc",
+            "borderRadius": 3,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Login to Account
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing Settings Screen 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F5FCFF",
+      "flex": 1,
+      "justifyContent": "center",
+      "position": "absolute",
+    }
+  }
+/>
+`;
+
+exports[`Testing Settings Screen 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F5FCFF",
+      "flex": 1,
+      "justifyContent": "center",
+      "position": "absolute",
+    }
+  }
+/>
+`;
+
 exports[`Testing Sign Up Screen 1`] = `
 <RCTScrollView
   contentContainerStyle={

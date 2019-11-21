@@ -43,8 +43,6 @@ class MyGardenPlants extends React.Component {
 
     for (var i in plantDictionary)
         data.push(plantDictionary[i]);
-
-    console.warn(data)
     return (
        <FlatList
           data={data}

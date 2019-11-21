@@ -9,24 +9,18 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-elements';
 
+/* istanbul ignore next */
 type Props = {
 };
 
+/* istanbul ignore next */
 type State = {
 };
 
 class SWelcomeScreen extends React.PureComponent<Props, State> {
-  state: State = {
-  };
 
+  /* istanbul ignore next */
   static navigationOptions = { header: null };
-
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
 
   render(): React$Element<any> {
     return (
@@ -52,25 +46,28 @@ class SWelcomeScreen extends React.PureComponent<Props, State> {
             backgroundColor:'#2c3e50',
           }}
           onPress={this._proceedLogin}
-
         />
       </View>
     );
   }
 
+  /* istanbul ignore next */
   _proceedCreate = () => {
     this.props.navigation.navigate('SignUp');
   }
 
+  /* istanbul ignore next */
   _proceedLogin = () => {
     this.props.navigation.navigate('Login');
   }
 
+  /* istanbul ignore next */
   _proceedUnregistered = () => {
     this.props.navigation.navigate('Main');
   }
 }
 
+/* istanbul ignore next */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

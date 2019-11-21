@@ -1,8 +1,11 @@
 import React from 'react';
 import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
 import renderer from 'react-test-renderer';
-import SSignUpScreen from '../screens/SSignUpScreen.js';
 
+import SSignUpScreen from '../screens/SSignUpScreen.js';
+import SLoginScreen from '../screens/SLoginScreen.js';
+import SWelcomeScreen from '../screens/SWelcomeScreen.js';
+import SSettingsScreen from '../screens/SSettingsScreen.js';
 import App from '../App';
 
 import { signUp, loginUser, fetchPlantDB } from '../services/Api.js';
@@ -18,6 +21,10 @@ describe('App', () => {
 
   beforeEach(() => {
     NavigationTestUtils.resetInternalState();
+  });
+
+  test('Sanity check', () => {
+    expect(true).toBe(true);
   });
 
   it(`renders the loading screen`, () => {
@@ -36,17 +43,29 @@ describe('App', () => {
   });
 });
 
-// describe('SHomeScreen', () => {
-//     describe('Rendering', () => {
-//         it('should match to snapshot', () => {
-//             const navigation = { navigate: jest.fn() };
-//             expect(true)
-//         });
-//     });
-// });
 
 it(`Testing Sign Up Screen`, () => {
   const tree = renderer.create(<SSignUpScreen />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it(`Testing Login Screen`, () => {
+  const tree = renderer.create(<SLoginScreen />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it(`Testing Login Screen`, () => {
+  const tree = renderer.create(<SWelcomeScreen />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it(`Testing Settings Screen`, () => {
+  const tree = renderer.create(<SSettingsScreen />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it(`Testing Settings Screen`, () => {
+  const tree = renderer.create(<SSettingsScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -61,6 +80,10 @@ describe('API', () => {
   it(`Testing Sign Up Non Async`, () => {
     const json = signUp("username", "password")
     expect(json);
+  });
+
+  test('Sanity check', () => {
+    expect(true).toBe(true);
   });
 
   it(`Testing Log In Non Async`, () => {

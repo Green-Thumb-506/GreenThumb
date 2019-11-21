@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for GreenThumb/screens/SSignUpScreen.js</title>
+    <title>Code coverage report for GreenThumb/screens/SLoginScreen.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">GreenThumb/screens</a> SSignUpScreen.js
+      <a href="../../index.html">All files</a> / <a href="index.html">GreenThumb/screens</a> SLoginScreen.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>1/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>2/2</span>
       </div>
     </div>
     <p class="quiet">
@@ -209,19 +209,7 @@
 <a name='L161'></a><a href='#L161'>161</a>
 <a name='L162'></a><a href='#L162'>162</a>
 <a name='L163'></a><a href='#L163'>163</a>
-<a name='L164'></a><a href='#L164'>164</a>
-<a name='L165'></a><a href='#L165'>165</a>
-<a name='L166'></a><a href='#L166'>166</a>
-<a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a>
-<a name='L169'></a><a href='#L169'>169</a>
-<a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a>
-<a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a>
-<a name='L176'></a><a href='#L176'>176</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L164'></a><a href='#L164'>164</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,19 +244,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -405,79 +381,66 @@ import {
   View,
   Image,
   Alert,
-  ScrollView,
 } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import { signUp, storeUser } from '../services/Api.js';
+import { loginUser, storeUser } from '../services/Api.js';
 &nbsp;
 /* istanbul ignore next */
 type State = {
   email: string,
   password: string,
-  name: string,
 };
 &nbsp;
-class SSignUpScreen extends React.PureComponent&lt;Props, State&gt; {
-&nbsp;
+class SLoginScreen extends React.PureComponent&lt;Props, State&gt; {
   /* istanbul ignore next */
   state: State = {
     email: '',
     password: '',
-    name: '',
   };
 &nbsp;
   /* istanbul ignore next */
   static navigationOptions = {
-    title: 'Create an Account',
+    title: 'Login to Account',
     headerStyle: { backgroundColor: '#bdc3c7' },
     headerTitleStyle: { color: '#2c3e50', },
   }
 &nbsp;
-  /* istanbul ignore next */
+&nbsp;
   render(): React$Element&lt;any&gt; {
     return (
-      &lt;ScrollView contentContainerStyle={styles.container}&gt;
+      &lt;View style={styles.container}&gt;
         &lt;Image
           style={styles.image}
           source={require('../images/green-tea.png')}
         /&gt;
         &lt;Input
-          placeholder='John Deer'
-          containerStyle={styles.inputEmail}
-          label="Name"
-          onChangeText={text =&gt; {
-            /* istanbul ignore next */
-            this._onChangeName(text)
-          }}
-        /&gt;
-        &lt;Input
           placeholder='email@address.com'
           containerStyle={styles.inputEmail}
           label="Email"
-          onChangeText={text =&gt; {
+          onChangeText={<span class="fstat-no" title="function not covered" >te</span>xt =&gt; {
             /* istanbul ignore next */
-            this._onChangeEmail(text)
+            this._onChangeEmail(text);
           }}
         /&gt;
         &lt;Input
           placeholder='Password'
           containerStyle={styles.input}
-          secureTextEntry={true}
           label="Password"
-          onChangeText={text =&gt; {
+          secureTextEntry={true}
+          onChangeText={<span class="fstat-no" title="function not covered" >te</span>xt =&gt; {
             /* istanbul ignore next */
-            this._onChangePassword(text)
+            this._onChangePassword(text);
           }}
         /&gt;
         &lt;Button
-          title="Create Account"
+          title="Login to Account"
           style={styles.button}
           buttonStyle={{
             backgroundColor:'#2c3e50',
           }}
           onPress={this._proceedLogin}
         /&gt;
-      &lt;/ScrollView&gt;
+      &lt;/View&gt;
     );
   }
 &nbsp;
@@ -504,7 +467,7 @@ class SSignUpScreen extends React.PureComponent&lt;Props, State&gt; {
 &nbsp;
   /* istanbul ignore next */
   _proceedLogin = async () =&gt; {
-    if (!this.state.email || !this.state.password || !this.state.name) {
+    if (!this.state.email || !this.state.password) {
       Alert.alert(
         'Error!',
         'Please enter your Name, Email, and Password!',
@@ -516,11 +479,11 @@ class SSignUpScreen extends React.PureComponent&lt;Props, State&gt; {
       return;
     }
 &nbsp;
-    var res = await signUp(this.state.email, this.state.password);
+    const res = await loginUser(this.state.email, this.state.password);
     if (!res || res.error) {
       Alert.alert(
         'Error!',
-        res &amp;&amp; res.error &amp;&amp; res.error.message || 'There was an error signing up!',
+        res &amp;&amp; res.error &amp;&amp; res.error.message || 'There was an error logging in!',
         [
           {text: 'OK', onPress: () =&gt; console.log('OK Pressed')},
         ],
@@ -539,12 +502,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#bdc3c7',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 50,
   },
   image: {
     height: 120,
     width: 120,
-    marginBottom: 60,
+    marginBottom: 20,
+    marginTop: 20,
   },
   inputStyle: {
     paddingBottom: 100,
@@ -568,9 +531,10 @@ const styles = StyleSheet.create({
     width: '70%',
     paddingBottom: 10,
   },
+&nbsp;
 });
 &nbsp;
-module.exports = SSignUpScreen;
+module.exports = SLoginScreen;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
