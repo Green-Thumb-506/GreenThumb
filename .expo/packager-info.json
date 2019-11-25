@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "packagerPort": null,
-  "packagerPid": null
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://vp-yc3.anonymous.greenthumb.exp.direct",
+  "packagerNgrokUrl": "https://packager.vp-yc3.anonymous.greenthumb.exp.direct",
+  "ngrokPid": 7332,
+  "packagerPort": 19001,
+  "packagerPid": 4680
 }

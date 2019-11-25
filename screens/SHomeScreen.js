@@ -113,10 +113,20 @@ export default class SHomeScreen extends React.Component {
 
    /* istanbul ignore next */
    _fetchPlants = async (): void => {
-      var res = await fetchPlantDB();
+
+    // this needs to actually fetch from the user's DB
+    var res = await fetchUserPlants();
       this.setState({
         plants: res || {},
       })
+
+    // end of the new code
+
+
+      // var res = await fetchPlantDB();
+      // this.setState({
+      //   plants: res || {},
+      // })
    }
 }
 
