@@ -1,5 +1,12 @@
 import Constants from 'expo-constants';
 
+/* istanbul ignore next */
+var userID  = "";
+
+export const getUserID = () => {
+  return userID;
+}
+
 export const loginUser = async (userName: string, password: string): Promise<Object> => {
   var data = {
     email: userName,
@@ -15,6 +22,8 @@ export const loginUser = async (userName: string, password: string): Promise<Obj
   try {
     const res = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAyA2M79qFAmhUV7VGogKeKSRNI2BdjsHs', request);
     const json = await res.json();
+    /* istanbul ignore next */
+    userID = json && json.idToken || "";
     /* istanbul ignore next */
     email = userName;
     /* istanbul ignore next */
@@ -40,6 +49,8 @@ export const signUp = async (userName: string, password: string): Promise<Object
     /* istanbul ignore next */
     const res = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAyA2M79qFAmhUV7VGogKeKSRNI2BdjsHs', request);
     const json = await res.json();
+    /* istanbul ignore next */
+    userID = json && json.idToken || "";
     return json;
   } catch (err) {
     return null;

@@ -6,6 +6,8 @@ import SSignUpScreen from '../screens/SSignUpScreen.js';
 import SLoginScreen from '../screens/SLoginScreen.js';
 import SWelcomeScreen from '../screens/SWelcomeScreen.js';
 import SSettingsScreen from '../screens/SSettingsScreen.js';
+import SHomeScreen from '../screens/SHomeScreen.js';
+
 import App from '../App';
 
 import { signUp, loginUser, fetchPlantDB } from '../services/Api.js';
@@ -54,10 +56,16 @@ it(`Testing Login Screen`, () => {
   expect(tree).toMatchSnapshot();
 });
 
-it(`Testing Login Screen`, () => {
+it(`Testing Welcome Screen`, () => {
   const tree = renderer.create(<SWelcomeScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it(`Testing SHomeScreen Screen`, () => {
+  const tree = renderer.create(<SHomeScreen />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 
 it(`Testing Settings Screen`, () => {
   const tree = renderer.create(<SSettingsScreen />).toJSON();

@@ -925,6 +925,25 @@ exports[`Testing Login Screen 2`] = `
 </View>
 `;
 
+exports[`Testing SHomeScreen Screen 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+</View>
+`;
+
 exports[`Testing Settings Screen 1`] = `
 <View
   style={
@@ -1199,4 +1218,150 @@ exports[`Testing Sign Up Screen 1`] = `
     </View>
   </View>
 </RCTScrollView>
+`;
+
+exports[`Testing Welcome Screen 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#bdc3c7",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#2c3e50",
+        "fontSize": 50,
+        "fontWeight": "600",
+        "marginBottom": 60,
+      }
+    }
+  >
+    GreenThumb
+  </Text>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 120,
+        "marginBottom": 60,
+        "width": 120,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "color": "#2c3e50",
+          "opacity": 1,
+          "paddingBottom": 10,
+          "width": "60%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#2c3e50",
+            "borderColor": "#2089dc",
+            "borderRadius": 3,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Create an Account
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "color": "#2c3e50",
+          "opacity": 1,
+          "paddingBottom": 10,
+          "width": "60%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#2c3e50",
+            "borderColor": "#2089dc",
+            "borderRadius": 3,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Login to Account
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;

@@ -61,7 +61,7 @@ const RecommendationsStack = createStackNavigator(
     {
         Recommendations: SRecommendationsScreen,
         DetailedPlant: SDetailedPlantScreen,
-        RecommendedPlantsList: RecommendedPlantsList, 
+        RecommendedPlantsList: RecommendedPlantsList,
     },
     config
 );

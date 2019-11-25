@@ -3,7 +3,6 @@ import { View, StyleSheet, Button, ScrollView, Text, TouchableOpacity } from 're
 import Firebase from '../config/Firebase';
 import RNPickerSelect from 'react-native-picker-select';
 
-
 // Function which pulls data from Firebase and stores in array.
 function recommendationsArray(snapshot) {
     var recArray = [];
