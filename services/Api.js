@@ -62,8 +62,15 @@ export const signUp = async (userName: string, password: string): Promise<Object
 }
 
 export const addUserToRealtimeDB = async (): Promise<Object> => {
+  var plants = {
+    baptisiaAustralis: true,
+    begonia: true,
+    ilexOpaca: true,
+  }
+  const plantsJson = JSON.stringify(plants);
+
   var data = {
-    myGarden: "a",
+    myGarden: plantsJson,
   }
   const jsonData = JSON.stringify(data);
   let request = {
@@ -102,9 +109,9 @@ export const fetchUserPlants = async (): Promise<Object> => {
   try {
     /* istanbul ignore next */
     let myID = getUserID();
-    const res = await fetch(`https://greenthumb-de7fb.firebaseio.com/users/${myID}/myGarden/.json`);
+    const res = await fetch(`https://greenthumb-de7fb.firebaseio.com/users/${myID}/.json`);
     const json = await res.json();
-    return json;
+    return json && json.myGarden || null;
   } catch (err) {
     return null;
   }

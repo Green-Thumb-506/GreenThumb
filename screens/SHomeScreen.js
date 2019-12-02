@@ -10,17 +10,19 @@ import {
 
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { fetchPlantDB } from '../services/Api.js';
+import { fetchPlantDB, fetchUserPlants } from '../services/Api.js';
 import { withNavigation } from 'react-navigation'
 
 type State = {
   plants: any,
+  userPlants: any,
   refreshing: boolean,
 }
 
 export default class SHomeScreen extends React.Component {
   state: State = {
     plants: null,
+    userPlants: null,
     refreshing: false,
   }
 
@@ -45,15 +47,15 @@ export default class SHomeScreen extends React.Component {
   }
 
   _renderFlatList() {
-    if (!this.state.plants || !this.state.plants.plantDictionary) { return null; }
-    const plantDictionary = this.state.plants.plantDictionary;
-    var data = [];
+    if (!this.state.plants) { return null; }
+    // const plantDictionary = this.state.plants.plantDictionary;
+    // var data = [];
 
-    for (var i in plantDictionary)
-        data.push(plantDictionary[i]);
+    // for (var i in plantDictionary)
+    //     data.push(plantDictionary[i]);
     return (
        <FlatList
-          data={data}
+          data={this.state.plants}
           renderItem={this._renderItem}
           keyExtractor={this._keyExtractor}
           ItemSeparatorComponent={this._renderCellSeperator}
@@ -113,20 +115,22 @@ export default class SHomeScreen extends React.Component {
 
    /* istanbul ignore next */
    _fetchPlants = async (): void => {
-
-    // this needs to actually fetch from the user's DB
-    var res = await fetchUserPlants();
-      this.setState({
-        plants: res || {},
-      })
-
-    // end of the new code
-
-
-      // var res = await fetchPlantDB();
-      // this.setState({
-      //   plants: res || {},
-      // })
+     var plantDb = await fetchPlantDB();
+     var userPlants = await fetchUserPlants();
+     this.setState({
+       userPlants: userPlants || {},
+     });
+     var plantsArr = [];
+     var s = {name: "raul", age: "22", gender: "Male"}
+     var objArray = JSON.parse(userPlants);
+     for (var key in objArray) {
+      if (plantDb.plantDictionary[key]) {
+        plantsArr.push(plantDb.plantDictionary[key]);
+      }
+     }
+     this.setState({
+       plants: plantsArr || [],
+     });
    }
 }
 
