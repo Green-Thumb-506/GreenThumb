@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 var userID  = "";
 var UserIDToken  = "";
 
+/* istanbul ignore next */
 export const getUserID = () => {
   return userID;
 }
@@ -12,6 +13,7 @@ export const getUserIDToken = () => {
   return UserIDToken;
 }
 
+/* istanbul ignore next */
 export const loginUser = async (userName: string, password: string): Promise<Object> => {
   var data = {
     email: userName,
@@ -26,6 +28,7 @@ export const loginUser = async (userName: string, password: string): Promise<Obj
   }
   try {
     const res = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAyA2M79qFAmhUV7VGogKeKSRNI2BdjsHs', request);
+    /* istanbul ignore next */
     const json = await res.json();
     /* istanbul ignore next */
     userID = json && json.localId || "";
@@ -58,6 +61,7 @@ export const signUp = async (name: string, userName: string, password: string): 
     /* istanbul ignore next */
     userID = json && json.localId || "";
     UserIDToken = json && json.idToken || "";
+    /* istanbul ignore next */
     addUserToRealtimeDB(name, userName);
     //API Call to Add User to Realtime DB
     return json;
@@ -66,10 +70,11 @@ export const signUp = async (name: string, userName: string, password: string): 
   }
 }
 
+/* istanbul ignore next */
 export const addUserToRealtimeDB = async (name: string, email: string): Promise<Object> => {
   var userToken = getUserID();
   if (!userToken) { return; }
-  
+
   var plants = {}
   const plantsJson = JSON.stringify(plants);
   var data = {
@@ -93,6 +98,7 @@ export const addUserToRealtimeDB = async (name: string, email: string): Promise<
   }
 }
 
+/* istanbul ignore next */
 export const removePlantUserDB = async (name: string): Promise<Object> => {
   var data = {
     [name]: false,
@@ -114,6 +120,7 @@ export const removePlantUserDB = async (name: string): Promise<Object> => {
   }
 }
 
+/* istanbul ignore next */
 export const addPlantUserDB = async (name: string): Promise<Object> => {
   var data = {
     [name]: true,
@@ -135,20 +142,21 @@ export const addPlantUserDB = async (name: string): Promise<Object> => {
   }
 }
 
-
-
+/* istanbul ignore next */
 export const fetchPlantDB = async (): Promise<Object> => {
   try {
     /* istanbul ignore next */
     const res = await fetch('https://greenthumb-de7fb.firebaseio.com/.json');
+    /* istanbul ignore next */
     const json = await res.json();
+    /* istanbul ignore next */
     return json;
   } catch (err) {
     return null;
   }
 }
 
-// newest method to fetch the user's plant data
+/* istanbul ignore next */
 export const fetchUserPlants = async (): Promise<Object> => {
   try {
     /* istanbul ignore next */

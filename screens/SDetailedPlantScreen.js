@@ -11,7 +11,10 @@ import {
   View,
   ScrollView,
   Image,
+  TouchableOpacity,
 } from 'react-native';
+
+import { addPlantUserDB } from '../services/Api.js';
 
 type Props = {
 };
@@ -49,10 +52,19 @@ class SDetailedPlantScreen extends React.PureComponent<Props, State> {
             <Text style={styles.plantBio}>{plant.bio}</Text>
             <Text style={styles.plantBio}>{plant.specs}</Text>
           </View>
-          
+          <TouchableOpacity
+            style={styles.addPlantButton}
+            onPress={() => this._addPlant(plant.key || "")}
+          >
+            <Text style={styles.plantBioHeader}> Add Plant </Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
+  }
+
+  _addPlant = async (name: string) => {
+    await addPlantUserDB(name);
   }
 }
 
@@ -96,6 +108,16 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  addPlantButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '75%',
+    maxHeight: 50,
+    backgroundColor: '#3BAD87',
+    borderRadius: 10,
+    marginTop: 30,
   }
 });
 

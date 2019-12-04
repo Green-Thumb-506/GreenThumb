@@ -50,6 +50,7 @@ export default class SHomeScreen extends React.Component {
       );
   }
 
+  /* istanbul ignore next */
   _renderFlatList() {
     if (!this.state.plants) { return null; }
 
@@ -65,6 +66,7 @@ export default class SHomeScreen extends React.Component {
     );
    }
 
+   /* istanbul ignore next */
    _renderCellSeperator() {
       return (
         <React.Fragment>
@@ -73,7 +75,7 @@ export default class SHomeScreen extends React.Component {
       );
     }
 
-
+    /* istanbul ignore next */
    _renderItem = (item: any, index: number) => {
      const name = item.item.name || "";
      const imageUri = item.item.picture || "";
@@ -105,8 +107,8 @@ export default class SHomeScreen extends React.Component {
       </TouchableOpacity>
      );
    }
+   
    /* istanbul ignore next */
-
    _removePlant = async (name: string) => {
      var updatedPlantDB = await removePlantUserDB(name);
      this._fetchPlants();
