@@ -118,7 +118,7 @@ const SMainAppStack = createMaterialBottomTabNavigator(
         SearchStack,
         RecommendationsStack,
         LibraryStack,
-        SettingsStack
+        SettingsStack,
     },
     {
         web: { headerMode: 'screen' },

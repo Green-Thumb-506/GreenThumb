@@ -2,7 +2,13 @@
 "use strict";
 
 import React from 'react';
-import { Text, View, StyleSheet, Alert} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Alert,
+  ScrollView,
+} from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { changeEmailAuth, changePasswordAuth, deleteUserAccount } from '../services/Api.js';
 
@@ -18,7 +24,7 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
       email: '',
       password: '',
     };
-    
+
 
     static navigationOptions = {
         title: 'Settings',
@@ -26,11 +32,14 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
         headerTitleStyle: { fontSize: 40, height: 60 },
     }
 
-   
+
 
     render(): React$Element<any> {
         return (
             <View style={styles.container}>
+              <ScrollView
+                contentContainerStyle={styles.scrollView}
+              >
                 <Input
                     placeholder='email@address.com'
                     containerStyle={styles.inputEmail}
@@ -66,6 +75,14 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
                     onPress={this._changeUserPassword}
                 />
                 <Button
+                    title="Logout"
+                    style={styles.button}
+                    buttonStyle={{
+                        backgroundColor:'#2c3e50',
+                    }}
+                    onPress={this._logoutUser}
+                />
+                <Button
                     title="DELETE ACCOUNT!"
                     style={styles.button}
                     buttonStyle={{
@@ -73,6 +90,7 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
                     }}
                     onPress={this._deleteUserAccount}
                 />
+              </ScrollView>
             </View>
         );
     }
@@ -89,11 +107,17 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
       });
   }
 
+  _logoutUser = async () => {
+    if (this.props.navigation) {
+      this.props.navigation.navigate('Auth');
+    }
+  }
+
   _deleteUserAccount = async () => {
 
     const res = await deleteUserAccount(this.state.email);
     //console.warn("this is the returned res, it should be null: " + res);
-    
+
     if (res.error) {
       //console.warn("I am entering the error message portion!!!")
       Alert.alert(
@@ -106,9 +130,8 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
       );
       return;
     }
-    //console.warn("This should be navigating to the home screen!!!");
-    this.props.navigation.navigate('Settings');
-    
+
+    this._logoutUser();
   }
 
 
@@ -124,7 +147,7 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
           );
           return;
         }
-    
+
         const res = await changeEmailAuth(this.state.email);
         if (!res || res.error) {
           Alert.alert(
@@ -151,7 +174,7 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
           );
           return;
         }
-    
+
         const res = await changePasswordAuth(this.state.password);
         if (!res || res.error) {
           Alert.alert(
@@ -170,10 +193,18 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        position: 'absolute',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
+      flex: 1,
+      backgroundColor: '#F5FCFF',
+    },
+    scrollView: {
+      width: '100%',
+      alignItems: 'center',
+    },
+    button: {
+      width: '75%',
+      minHeight: 50,
+      maxHeight: 50,
+      paddingTop: 10,
+      borderRadius: 5,
     },
 });
