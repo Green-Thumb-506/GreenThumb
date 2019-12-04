@@ -118,7 +118,7 @@ class SSignUpScreen extends React.PureComponent<Props, State> {
       return;
     }
 
-    var res = await signUp(this.state.email, this.state.password);
+    var res = await signUp(this.state.name, this.state.email, this.state.password);
     if (!res || res.error) {
       Alert.alert(
         'Error!',

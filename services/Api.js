@@ -33,7 +33,7 @@ export const loginUser = async (userName: string, password: string): Promise<Obj
   }
 }
 
-export const signUp = async (userName: string, password: string): Promise<Object> => {
+export const signUp = async (name: string, userName: string, password: string): Promise<Object> => {
   var data = {
     email: userName,
     password: password,
@@ -51,7 +51,7 @@ export const signUp = async (userName: string, password: string): Promise<Object
     const json = await res.json();
     /* istanbul ignore next */
     userID = json && json.localId || "";
-    addUserToRealtimeDB(userID);
+    addUserToRealtimeDB(name, userName);
     //API Call to Add User to Realtime DB
     return json;
   } catch (err) {
@@ -59,15 +59,15 @@ export const signUp = async (userName: string, password: string): Promise<Object
   }
 }
 
-export const addUserToRealtimeDB = async (): Promise<Object> => {
-  var plants = {
-    baptisiaAustralis: true,
-    begonia: true,
-    ilexOpaca: true,
-  }
+export const addUserToRealtimeDB = async (name: string, email: string): Promise<Object> => {
+  var userToken = getUserID();
+  if (!userToken) { return; }
+  
+  var plants = {}
   const plantsJson = JSON.stringify(plants);
-
   var data = {
+    email: email,
+    name: name,
     myGarden: plantsJson,
   }
   const jsonData = JSON.stringify(data);
@@ -76,7 +76,6 @@ export const addUserToRealtimeDB = async (): Promise<Object> => {
     body: jsonData,
     'Content-Type': 'application/json'
   }
-  var userToken = getUserID();
   try {
     /* istanbul ignore next */
     const res = await fetch('https://greenthumb-de7fb.firebaseio.com/users/' + [userToken] + '.json', request);
