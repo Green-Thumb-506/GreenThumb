@@ -331,3 +331,16 @@ export const deleteUserAccountDB = async (): Promise<Object> => {
     return null;
   }
 }
+
+export const fetchUserInfo = async (): Promise<Object> => {
+  try {
+    /* istanbul ignore next */
+    let myID = getUserID();
+    const res = await fetch(`https://greenthumb-de7fb.firebaseio.com/users/${myID}/.json`);
+    const json = await res.json();
+    console.warn("JSON: ", JSON.stringify(json));
+    return json;
+  } catch (err) {
+    return null;
+  }
+}

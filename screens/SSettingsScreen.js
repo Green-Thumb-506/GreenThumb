@@ -10,12 +10,14 @@ import {
   ScrollView,
 } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import { changeEmailAuth, changePasswordAuth, deleteUserAccount } from '../services/Api.js';
+import { changeEmailAuth, changePasswordAuth, deleteUserAccount, fetchUserInfo } from '../services/Api.js';
 
 //class SLoginScreen extends React.PureComponent<Props, State>
 type State = {
   email: string,
   password: string,
+  username: string,
+  useremail: string,
 };
 
 export default class SSettingsScreen extends React.PureComponent<Props, State> {
@@ -23,8 +25,14 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
     state: State = {
       email: '',
       password: '',
+      username: '',
+      useremail: '',
     };
 
+
+    componentDidMount() {
+      this._fetchUserInfo();
+    }
 
     static navigationOptions = {
         title: 'Settings',
@@ -33,6 +41,7 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
     }
 
 
+    
 
     render(): React$Element<any> {
         return (
@@ -40,6 +49,8 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
               <ScrollView
                 contentContainerStyle={styles.scrollView}
               >
+              <Text>{this.state.username}</Text>
+              <Text>{this.state.useremail}</Text>
                 <Input
                     placeholder='email@address.com'
                     containerStyle={styles.inputEmail}
@@ -95,6 +106,14 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
         );
     }
 
+
+    _fetchUserInfo = async (): void => {
+      var res = await fetchUserInfo();
+      this.setState({
+        username: res && res.name || '',
+        useremail: res && res.email || '',
+      })
+  }
 
     _newEmail = (text: string) => {
         this.setState({
@@ -158,6 +177,7 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
             ],
             {cancelable: false},
           );
+          this._fetchUserInfo();
           return;
         }
       }
