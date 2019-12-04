@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1574296460483" clover="3.2.0">
-  <project timestamp="1574296460484" name="All files">
-    <metrics statements="51" coveredstatements="39" conditionals="16" coveredconditionals="11" methods="17" coveredmethods="11" elements="84" coveredelements="61" complexity="0" loc="51" ncloc="51" packages="5" files="9" classes="9"/>
+<coverage generated="1575488992436" clover="3.2.0">
+  <project timestamp="1575488992436" name="All files">
+    <metrics statements="27" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="11" coveredmethods="8" elements="46" coveredelements="41" complexity="0" loc="27" ncloc="27" packages="5" files="9" classes="9"/>
     <package name="GreenThumb">
       <metrics statements="5" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="1"/>
       <file name="App.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/App.js">
@@ -28,24 +28,13 @@
       </file>
     </package>
     <package name="GreenThumb.screens">
-      <metrics statements="23" coveredstatements="14" conditionals="10" coveredconditionals="5" methods="11" coveredmethods="6"/>
+      <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="5"/>
       <file name="SHomeScreen.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/screens/SHomeScreen.js">
-        <metrics statements="15" coveredstatements="6" conditionals="10" coveredconditionals="5" methods="6" coveredmethods="3"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="48" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="77" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="79" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
       </file>
       <file name="SLoginScreen.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/screens/SLoginScreen.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
@@ -69,30 +58,17 @@
       </file>
     </package>
     <package name="GreenThumb.services">
-      <metrics statements="21" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Api.js" path="/Users/jonqnelson/workspace/iter2/GreenThumb/services/Api.js">
-        <metrics statements="21" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
         <line num="45" count="2" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="56" count="4" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
       </file>
     </package>
   </project>

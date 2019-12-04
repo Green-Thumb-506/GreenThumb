@@ -43,25 +43,27 @@ export default class SLibraryScreen extends React.Component {
     );
   }
 
+  /* istanbul ignore next */
   _renderFlatList() {
-  if (!this.state.plants || !this.state.plants.plantDictionary) { return null; }
-  const plantDictionary = this.state.plants.plantDictionary;
-  var data = [];
+    if (!this.state.plants || !this.state.plants.plantDictionary) { return null; }
+    const plantDictionary = this.state.plants.plantDictionary;
+    var data = [];
 
-  for (var i in plantDictionary)
-      data.push(plantDictionary[i]);
-  return (
-     <FlatList
-        data={data}
-        renderItem={this._renderItem}
-        keyExtractor={this._keyExtractor}
-        ItemSeparatorComponent={this._renderCellSeperator}
-        onRefresh={this._fetchPlants}
-        refreshing={this.state.refreshing}
-     />
-  );
+    for (var i in plantDictionary)
+        data.push(plantDictionary[i]);
+    return (
+       <FlatList
+          data={data}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+          ItemSeparatorComponent={this._renderCellSeperator}
+          onRefresh={this._fetchPlants}
+          refreshing={this.state.refreshing}
+       />
+    );
  }
 
+ /* istanbul ignore next */
  _renderCellSeperator() {
     return (
       <React.Fragment>
@@ -70,7 +72,7 @@ export default class SLibraryScreen extends React.Component {
     );
   }
 
-
+  /* istanbul ignore next */
  _renderItem = (item: any, index: number) => {
    const name = item.item.name || "";
    const imageUri = item.item.picture || "";
@@ -100,20 +102,24 @@ export default class SLibraryScreen extends React.Component {
    );
  }
 
+ /* istanbul ignore next */
  _addPlant = async (name: string) => {
    await addPlantUserDB(name);
  }
 
+ /* istanbul ignore next */
  _onPressPlant = (item: any) => {
    this.props.navigation.navigate('DetailedPlant', {
      plant: item,
    });
  }
 
+ /* istanbul ignore next */
  _keyExtractor = (item, index) => {
    return index.toString();
  }
 
+ /* istanbul ignore next */
  _fetchPlants = async (): void => {
     var res = await fetchPlantDB();
     this.setState({
