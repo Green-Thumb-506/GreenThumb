@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "packagerPort": null,
-  "packagerPid": null,
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://pw-xy4.anonymous.greenthumb.exp.direct",
+  "packagerNgrokUrl": "https://packager.pw-xy4.anonymous.greenthumb.exp.direct",
+  "ngrokPid": 17220,
+  "packagerPort": 19001,
+  "packagerPid": 13756,
   "webpackServerPort": null
 }
