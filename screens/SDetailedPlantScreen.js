@@ -104,7 +104,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   scrollViewContainer: {
-    flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -114,10 +113,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '75%',
+    minHeight: 50,
     maxHeight: 50,
     backgroundColor: '#3BAD87',
     borderRadius: 10,
     marginTop: 30,
+    marginBottom: 30,
   }
 });
 
