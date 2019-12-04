@@ -10,7 +10,11 @@ import {
 
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { fetchPlantDB, fetchUserPlants } from '../services/Api.js';
+import {
+  fetchPlantDB,
+  fetchUserPlants,
+  removePlantUserDB,
+} from '../services/Api.js';
 import { withNavigation } from 'react-navigation'
 
 type State = {
@@ -48,11 +52,7 @@ export default class SHomeScreen extends React.Component {
 
   _renderFlatList() {
     if (!this.state.plants) { return null; }
-    // const plantDictionary = this.state.plants.plantDictionary;
-    // var data = [];
 
-    // for (var i in plantDictionary)
-    //     data.push(plantDictionary[i]);
     return (
        <FlatList
           data={this.state.plants}
@@ -77,6 +77,7 @@ export default class SHomeScreen extends React.Component {
    _renderItem = (item: any, index: number) => {
      const name = item.item.name || "";
      const imageUri = item.item.picture || "";
+     const key = item.item.key || "";
 
      return (
        <TouchableOpacity
@@ -94,11 +95,21 @@ export default class SHomeScreen extends React.Component {
          <View style={styles.textView}>
            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{name}</Text>
          </View>
-         <TouchableOpacity>
-            <Icon size={25} name={'ios-trash'} />
+         <TouchableOpacity
+          onPress={() => {
+            this._removePlant(key);
+          }}
+         >
+            <Icon size={45} name={'ios-trash'} />
          </TouchableOpacity>
       </TouchableOpacity>
      );
+   }
+   /* istanbul ignore next */
+
+   _removePlant = async (name: string) => {
+     var updatedPlantDB = await removePlantUserDB(name);
+     this._fetchPlants();
    }
 
    /* istanbul ignore next */
@@ -121,10 +132,8 @@ export default class SHomeScreen extends React.Component {
        userPlants: userPlants || {},
      });
      var plantsArr = [];
-     var s = {name: "raul", age: "22", gender: "Male"}
-     var objArray = JSON.parse(userPlants);
-     for (var key in objArray) {
-      if (plantDb.plantDictionary[key]) {
+     for (var key in userPlants) {
+      if (userPlants[key] && plantDb.plantDictionary[key]) {
         plantsArr.push(plantDb.plantDictionary[key]);
       }
      }

@@ -10,7 +10,7 @@ import {
 
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { fetchPlantDB } from '../services/Api.js';
+import { fetchPlantDB, addPlantUserDB } from '../services/Api.js';
 
 type State = {
   plants: any,
@@ -74,6 +74,7 @@ export default class SLibraryScreen extends React.Component {
  _renderItem = (item: any, index: number) => {
    const name = item.item.name || "";
    const imageUri = item.item.picture || "";
+   const key = item.item.key || "";
 
    return (
      <TouchableOpacity
@@ -88,11 +89,19 @@ export default class SLibraryScreen extends React.Component {
        <View style={styles.textView}>
          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{name}</Text>
        </View>
-       <TouchableOpacity>
-          <Icon size={25} name={'ios-trash'} />
+       <TouchableOpacity
+        onPress={() => {
+          this._addPlant(key);
+        }}
+       >
+          <Icon size={45} name={'ios-add'} />
        </TouchableOpacity>
     </TouchableOpacity>
    );
+ }
+
+ _addPlant = async (name: string) => {
+   await addPlantUserDB(name);
  }
 
  _onPressPlant = (item: any) => {

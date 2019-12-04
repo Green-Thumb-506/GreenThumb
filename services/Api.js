@@ -51,10 +51,8 @@ export const signUp = async (userName: string, password: string): Promise<Object
     const json = await res.json();
     /* istanbul ignore next */
     userID = json && json.localId || "";
-    console.warn("signed up user ID: " + userID)
     addUserToRealtimeDB(userID);
     //API Call to Add User to Realtime DB
-
     return json;
   } catch (err) {
     return null;
@@ -79,12 +77,52 @@ export const addUserToRealtimeDB = async (): Promise<Object> => {
     'Content-Type': 'application/json'
   }
   var userToken = getUserID();
-  console.warn("user token" + userToken);
   try {
     /* istanbul ignore next */
     const res = await fetch('https://greenthumb-de7fb.firebaseio.com/users/' + [userToken] + '.json', request);
     const json = await res.json();
-    console.warn("res" + JSON.stringify(json))
+    return json;
+  } catch (err) {
+    return null;
+  }
+}
+
+export const removePlantUserDB = async (name: string): Promise<Object> => {
+  var data = {
+    [name]: false,
+  }
+  const jsonData = JSON.stringify(data);
+  let request = {
+    method: "PATCH",
+    body: jsonData,
+    'Content-Type': 'application/json'
+  }
+  var userToken = getUserID();
+  try {
+    /* istanbul ignore next */
+    const res = await fetch('https://greenthumb-de7fb.firebaseio.com/users/' + [userToken] + '/myGarden/' + '.json', request);
+    const json = await res.json();
+    return json;
+  } catch (err) {
+    return null;
+  }
+}
+
+export const addPlantUserDB = async (name: string): Promise<Object> => {
+  var data = {
+    [name]: true,
+  }
+  const jsonData = JSON.stringify(data);
+  let request = {
+    method: "PATCH",
+    body: jsonData,
+    'Content-Type': 'application/json'
+  }
+  var userToken = getUserID();
+  try {
+    /* istanbul ignore next */
+    const res = await fetch('https://greenthumb-de7fb.firebaseio.com/users/' + [userToken] + '/myGarden/' + '.json', request);
+    const json = await res.json();
     return json;
   } catch (err) {
     return null;
