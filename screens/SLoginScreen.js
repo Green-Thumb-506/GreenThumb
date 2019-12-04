@@ -66,6 +66,15 @@ class SLoginScreen extends React.PureComponent<Props, State> {
           }}
           onPress={this._proceedLogin}
         />
+            
+        <Button
+            title="Forgot Password?"
+           onPress={() => this.props.navigation.navigate('ForgotPassword')}
+          titleStyle={{
+         color: '#039BE5'
+         }}
+          type="clear"
+         />
       </View>
     );
   }
