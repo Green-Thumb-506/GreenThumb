@@ -157,6 +157,8 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
       return;
     }
 
+    Alert.alert("Successfully Deleted User Account");
+
     this._logoutUser();
   }
 
@@ -187,6 +189,8 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
       this._fetchUserInfo();
       return;
     }
+    Alert.alert("Successfully Changed User Email");
+    this._logoutUser();
   }
 
   _changeUserPassword = async () => {
@@ -214,6 +218,8 @@ export default class SSettingsScreen extends React.PureComponent<Props, State> {
       );
       return;
     }
+    Alert.alert("Successfully Changed User Password");
+    this._logoutUser();
   }
 
 }

@@ -3,8 +3,8 @@
   "expoServerPort": 19000,
   "expoServerNgrokUrl": "https://r5-ga4.anonymous.greenthumb.exp.direct",
   "packagerNgrokUrl": "https://packager.r5-ga4.anonymous.greenthumb.exp.direct",
-  "ngrokPid": 9588,
+  "ngrokPid": 1376,
   "packagerPort": 19001,
-  "packagerPid": 14884,
+  "packagerPid": 5100,
   "webpackServerPort": null
 }

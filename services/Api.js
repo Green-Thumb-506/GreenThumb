@@ -296,6 +296,7 @@ export const deleteUserAccount = async (email: string): Promise<Object> => {
   }
   try {
     /* istanbul ignore next */
+
     deleteUserAccountDB();
     const res = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyAyA2M79qFAmhUV7VGogKeKSRNI2BdjsHs', request);
     const json = await res.json();
@@ -338,7 +339,7 @@ export const fetchUserInfo = async (): Promise<Object> => {
     let myID = getUserID();
     const res = await fetch(`https://greenthumb-de7fb.firebaseio.com/users/${myID}/.json`);
     const json = await res.json();
-    console.warn("JSON: ", JSON.stringify(json));
+    //console.warn("JSON: ", JSON.stringify(json));
     return json;
   } catch (err) {
     return null;

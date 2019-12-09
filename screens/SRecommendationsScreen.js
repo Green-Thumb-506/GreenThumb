@@ -34,7 +34,7 @@ function comparePlants(a, b) {
 
 function generateRecs(light, height, maitainence, season) {
     // this total will need editing!
-    let userTotal = light * .7 + height * .5 + maitainence * .1 + season * .4;
+    let userTotal = light * .7 + height * 5.0 + maitainence * .1 + season * .4;
 
     let recommendations = recommendPlantDict(plants);
     let userArr = [];
@@ -136,7 +136,7 @@ function recommendPlantDict(plantDict) {
         }
         // end of maitenance
 
-        total += lightTotal * .7 + seasonTotal * .4 + heightTotal * .5 + maitTotal * .1;
+        total += lightTotal * .7 + seasonTotal * .4 + heightTotal * 2 + maitTotal * .1;
         // total += lightTotal*.6 + maitTotal*.4 + seasonTotal*.3 + heightTotal*.2;
         recDict[plant.name] = total;
         //console.log(`${plant.name}:`, recDict[plant.name])
