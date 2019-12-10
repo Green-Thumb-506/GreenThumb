@@ -157,7 +157,7 @@ export default class SRecommendationsScreen extends React.Component {
 
     static navigationOptions = {
         title: 'Recommendations',
-        headerStyle: { backgroundColor: '#67baf6' },
+        headerStyle: { backgroundColor: '#3BAD87' },
         headerTitleStyle: { fontSize: 40, height: 60 },
     }
 

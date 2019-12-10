@@ -5,8 +5,8 @@ import SearchPlants from './SearchPlants'
 export default class SSearchScreen extends React.Component {
 
     static navigationOptions = {
-        title: 'GreenThumb Database',
-        headerStyle: { backgroundColor: '#f69b31' },
+        title: 'Search Plants',
+        headerStyle: { backgroundColor: '#3BAD87' },
         headerTitleStyle: { fontSize: 30, height: 40 },
     }
 

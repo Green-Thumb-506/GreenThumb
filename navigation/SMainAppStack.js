@@ -50,9 +50,6 @@ SearchStack.navigationOptions = {
         <View>
             <Icon style={[{ color: tintColor }]} size={25} name={'ios-search'} />
         </View>),
-    activeColor: '#f60c0d',
-    inactiveColor: '#f65a22',
-    barStyle: { backgroundColor: '#f69b31' },
 };
 
 
@@ -71,9 +68,6 @@ RecommendationsStack.navigationOptions = {
         <View>
             <Icon style={[{ color: tintColor }]} size={25} name={'ios-leaf'} />
         </View>),
-    activeColor: '#615af6',
-    inactiveColor: '#46f6d7',
-    barStyle: { backgroundColor: '#67baf6' },
 };
 
 
@@ -90,9 +84,6 @@ LibraryStack.navigationOptions = {
         <View>
             <Icon style={[{ color: tintColor }]} size={25} name={'ios-list-box'} />
         </View>),
-    activeColor: '#7D1324',
-    inactiveColor: '#ED92A0',
-    barStyle: { backgroundColor: '#C85B6C' },
 };
 
 

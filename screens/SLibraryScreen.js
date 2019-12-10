@@ -29,7 +29,7 @@ export default class SLibraryScreen extends React.Component {
 
   static navigationOptions = {
       title: 'Library',
-      headerStyle: { backgroundColor: '#C85B6C' },
+      headerStyle: { backgroundColor: '#3BAD87' },
       headerTitleStyle: { fontSize: 40, height: 60 },
   }
 
